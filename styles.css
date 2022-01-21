@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+svg {
+  height: 70%;
+}
+
+@keyframes connectionLineAnimation {
+  from {
+    stroke-dashoffset: 2000;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.ConnectionLine {
+  animation: connectionLineAnimation 1s 0.5s ease-in-out,
+    connectionLineAnimation 1s 7.8s ease-in-out reverse;
+  animation-fill-mode: forwards;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+}
+
+.ConnectionStatus {
+  animation: flashAnimation 0.3s 1.5s 5 ease-in-out,
+    connectLightAnimation 1s 3.2s linear,
+    disconnectLightAnimation 1s 7.6s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes flashAnimation {
+  from {
+    fill: #ffd778;
+    opacity: 0;
+  }
+
+  to {
+    fill: #ffd778;
+  }
+}
+
+@keyframes connectLightAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    fill: #09e800;
+  }
+}
+
+@keyframes disconnectLightAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    fill: #ff829d;
+  }
+}
+
+.LineGraph,
+.BarGraph {
+  animation: graphAnimation 5s 3.2s ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes graphAnimation {
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+}
